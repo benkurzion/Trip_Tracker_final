@@ -24,18 +24,18 @@
 
     <TextView
         android:id="@+id/instruction1"
-        android:layout_width="138dp"
-        android:layout_height="53dp"
-        android:background="@color/teal_700"
-        android:gravity="center"
+        android:layout_width="244dp"
+        android:layout_height="47dp"
+        android:gravity="left"
         android:text="Provide Description of Location:"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.095"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.547" />
+        app:layout_constraintVertical_bias="0.527" />
 
     <Button
         android:id="@+id/saveLog"
@@ -71,18 +71,18 @@
 
     <TextView
         android:id="@+id/instruction0"
-        android:layout_width="138dp"
-        android:layout_height="53dp"
-        android:background="@color/teal_700"
-        android:gravity="center"
+        android:layout_width="208dp"
+        android:layout_height="54dp"
+        android:gravity="center|left"
         android:text="Provide Name of Location:"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
+        app:layout_constraintVertical_bias="0.293" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/nameBox"
@@ -90,30 +90,31 @@
         android:layout_height="55dp"
         android:layout_marginTop="22dp"
         android:layout_marginBottom="70dp"
-        android:backgroundTint="@color/black"
+        android:background="@color/black"
         android:hint="Ex: Doughnut Shop"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textColorHint="@color/gray_600"
         app:layout_constraintBottom_toTopOf="@+id/instruction1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction0"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.647" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/descriptionBox"
         android:layout_width="355dp"
         android:layout_height="55dp"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="156dp"
-        android:backgroundTint="@color/black"
+        android:background="@color/black"
         android:hint="Ex: Green door next to park"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textColorHint="@color/gray_600"
         app:layout_constraintBottom_toTopOf="@+id/saveLog"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instruction1"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.929" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

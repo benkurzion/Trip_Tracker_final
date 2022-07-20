@@ -9,23 +9,23 @@
 
     <Button
         android:id="@+id/chngLoc"
-        android:layout_width="160dp"
-        android:layout_height="85dp"
+        android:layout_width="120dp"
+        android:layout_height="65dp"
         android:backgroundTint="@color/black"
         android:onClick="toActivityChangeLocation"
         android:text="Change Location"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintHorizontal_bias="0.934"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.729" />
+        app:layout_constraintVertical_bias="0.024" />
 
     <Button
         android:id="@+id/prevTrips"
-        android:layout_width="116dp"
-        android:layout_height="63dp"
+        android:layout_width="120dp"
+        android:layout_height="65dp"
         android:backgroundTint="@color/black"
         android:onClick="toActivityPrevTrips"
         android:text="PREVIOUS TRIPS"
@@ -33,10 +33,10 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.024" />
 
     <Button
         android:id="@+id/beginLog2"
@@ -49,10 +49,10 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.729" />
+        app:layout_constraintVertical_bias="0.726" />
 
     <TextView
         android:id="@+id/currentTrip"

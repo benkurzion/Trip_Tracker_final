@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if(intent.hasExtra("Specific Name")){//came from Add Log Activity
             addHeadLocation(currentLocation.getText().toString());
-            Bundle b = intent.getExtras();
+            /*
             Bitmap bmp = null;
             String fileName = getIntent().getStringExtra("Photo Taken");
             try{
@@ -86,15 +87,25 @@ public class MainActivity extends AppCompatActivity {
             }catch(Exception e){
                 e.printStackTrace();
             }
+
+             */
             if(intent.hasExtra("Specific Description")) {
-                addSpecificLog(new Head.SpecificLog(intent.getStringExtra("Specific Name"), bmp, intent.getStringExtra("Specific Description"), (Location)b.get(LocationManager.KEY_LOCATION_CHANGED)));
+                addSpecificLog(new Head.SpecificLog(intent.getStringExtra("Specific Name"), intent.getStringExtra("Specific Description"),
+                        intent.getDoubleExtra("Latitude", Integer.MAX_VALUE), intent.getDoubleExtra("Longitude", Integer.MAX_VALUE),
+                        intent.getStringExtra("key"), intent.getStringExtra("path")));
             }else{
-                addSpecificLog(new Head.SpecificLog(intent.getStringExtra("Specific Name"), bmp, null, (Location)b.get(LocationManager.KEY_LOCATION_CHANGED)));
+                addSpecificLog(new Head.SpecificLog(intent.getStringExtra("Specific Name"), null,
+                        intent.getDoubleExtra("Latitude", Integer.MAX_VALUE), intent.getDoubleExtra("Longitude", Integer.MAX_VALUE),
+                        intent.getStringExtra("key"), intent.getStringExtra("path")));
             }
             storeList(allLogs);
         }
         if(intent.hasExtra("store list")){
             removeHeadLocation(intent.getStringExtra("store list"));
+            storeList(allLogs);
+        }
+        if(intent.hasExtra("delete list specific")){
+            removeSpecificLog(intent.getStringExtra("delete list specific"));
             storeList(allLogs);
         }
 
@@ -282,6 +293,20 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    private static boolean removeSpecificLog(String name){
+        for(int i = 0; i < allLogs.size(); i++) {
+            if (allLogs.get(i).getHeadName().equals(currentLocation.getText().toString())) {
+                for(int j = 0; j < allLogs.get(i).getSpecificLogs().size(); j++){
+                    if(allLogs.get(i).getSpecificLogs().get(j).getSpecificLogName().equals(name)){
+                        allLogs.get(i).getSpecificLogs().remove(j);
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
 
     /**
      * Retrieves the specific log list from a certain location
@@ -324,39 +349,43 @@ public class MainActivity extends AppCompatActivity {
 
         public static class SpecificLog{
             private String name;
-            private Bitmap photo;
             private String description;
-            private Location location;
+            private double latitude;
+            private double longitude;
+            private String key;
+            private String path;
 
-            public SpecificLog(String name, Bitmap photo, String description, Location location){
+            public SpecificLog(String name, String description, double latidude, double longitude, String key, String path){
                 this.name = name;
-                this.photo = photo;
                 this.description = description;
-                this.location = location;
+                this.latitude = latidude;
+                this.longitude = longitude;
+                this.key = key;
+                this.path = path;
             }
 
+            public String getPath(){
+                return this.path;
+            }
 
+            public String getKey(){
+                return key;
+            }
 
             public String getSpecificLogName(){
                 return this.name;
             }
 
-
-            public byte[] getPhoto(){
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                photo.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                return stream.toByteArray();
+            public double getLatitude(){
+                return latitude;
             }
 
-
-
+            public double getLongitude(){
+                return longitude;
+            }
 
             public String getSpecificLogDescription(){
                 return description;
-            }
-
-            public Location getLocation(){
-                return location;
             }
 
 
